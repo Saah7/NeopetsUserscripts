@@ -1,5 +1,6 @@
 # NeopetsUserscripts
 _monkey userscripts for Neopets
+See [Userscript Descriptions](https://github.com/saahphire/NeopetsUserscripts/wiki/Userscript-Descriptions) for information on each script's features, or look at its comments
 
 ## How to install
 - Install an userscripts extension. From most to least recommended:
