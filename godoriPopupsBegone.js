@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Neopets: Godori Pop-Ups Begone
-// @namespace    https://greasyfork.org/en/users/1510049-saah7
+// @namespace    https://github.com/saahphire/NeopetsUserscripts
 // @description  Blocks the pop-up alerts in Godori
 // @match       https://www.neopets.com/games/godori/*
 // @exclude     https://www.neopets.com/games/godori/index.phtml
 // @version     1.0.0
 // @author       saahphire
-// @homepageURL  https://www.neopets.com/userlookup.phtml?user=saahphire
-// @downloadURL  https://greasyfork.org/en/scripts/548316-neopets-godori-pop-ups-begone
-// @updateURL    https://greasyfork.org/en/scripts/548316-neopets-godori-pop-ups-begone
+// @homepageURL  https://github.com/saahphire/NeopetsUserscripts
+// @downloadURL  https://github.com/saahphire/NeopetsUserscripts/blob/main/godoriPopupsBegone.js
+// @updateURL    https://github.com/saahphire/NeopetsUserscripts/blob/main/godoriPopupsBegone.js
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com
 // @license      The Unlicense
 // @run-at      document-start
