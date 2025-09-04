@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Neopets: Codestone Tracker
-// @namespace    https://greasyfork.org/en/users/1510049-saah7
+// @namespace    https://github.com/saahphire/NeopetsUserscripts
 // @version      1.1.0
 // @description  Moves your battle pet(s) to the top in the status page of training schools
 // @author       saahphire
-// @homepageURL  https://www.neopets.com/userlookup.phtml?user=saahphire
-// @downloadURL  https://greasyfork.org/en/scripts/548177-neopets-codestone-tracker
-// @updateURL    https://greasyfork.org/en/scripts/548177-neopets-codestone-tracker
+// @homepageURL  https://github.com/saahphire/NeopetsUserscripts
+// @downloadURL  https://github.com/saahphire/NeopetsUserscripts/blob/main/codestoneTracker.js
+// @updateURL    https://github.com/saahphire/NeopetsUserscripts/blob/main/codestoneTracker.js
 // @match        *://*.neopets.com/island/training.phtml?type=status
 // @match        *://*.neopets.com/island/fight_training.phtml?type=status
 // @match        *://*.neopets.com/safetydeposit.phtml?*category=2&*
