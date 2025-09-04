@@ -13,8 +13,8 @@
 // @match        *://*.neopets.com/safetydeposit.phtml?*category=2
 // @match        *://*.neopets.com/quickstock.phtml*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=neopets.com
-// @grant        GM_setValue
-// @grant        GM_getValue
+// @grant        GM.setValue
+// @grant        GM.getValue
 // @license      The Unlicense
 // ==/UserScript==
 /*
@@ -190,8 +190,8 @@ const addPinField = () => {
 * Retrieves stored data about your codestones
 * @returns {Object.<string, {id: number, qty: number}>}
 */
-const getStoredCodestones = () => {
-    return JSON.parse(GM_getValue("saahphire-codestone-tracker", "{}"));
+const getStoredCodestones = async () => {
+    return JSON.parse(await GM.getValue("saahphire-codestone-tracker", "{}"));
 }
 
 /**
@@ -207,8 +207,8 @@ const setStoredCodestones = (codestones) => {
 * @param itemName {string} The codestone's name
 * @returns {number} The new quantity
 */
-const removeOneFromStorage = (itemName) => {
-    const storage = getStoredCodestones();
+const removeOneFromStorage = async (itemName) => {
+    const storage = await getStoredCodestones();
     storage[itemName].qty--;
     setStoredCodestones(storage);
     return storage[itemName].qty;
@@ -277,8 +277,8 @@ const addSDBLink = () => document.getElementsByTagName("center")[0].insertAdjace
 /**
 * Adds links to each codestone shown in the Training School status page
 */
-const onTrainingPage = () => {
-    const ownedCodestones = getStoredCodestones();
+const onTrainingPage = async () => {
+    const ownedCodestones = await getStoredCodestones();
     const codestones = document.querySelectorAll("table[width='500'] tr:nth-child(2n) td:last-child b:has(~ img)");
     const usage = {};
     codestones.forEach(codestone => {
@@ -313,8 +313,8 @@ const onSDBPage = () => {
 /**
 * Adds an event listener so whenever you store codestones in the Quick Stock, their quantities get updated
 */
-const onQuickStock = () => {
-    const storage = getStoredCodestones();
+const onQuickStock = async () => {
+    const storage = await getStoredCodestones();
     const allExistingCodestones = getExistingCodestones();
     document.querySelector("input[type='submit']").addEventListener("click", () => {
         const count = 0;
@@ -352,7 +352,7 @@ const isUrl = (query) => window.location.href.includes(query);
 */
 const isParam = (parameter, value, nullIsTrue = false) => window.location.href.match(new RegExp(`${parameter}=${value}(&|$)`)) ?? (nullIsTrue && !window.location.href.match(parameter + '='));
 
-(function() {
+(async function() {
     'use strict';
     if(isParam('type', 'status')) {
         addPinField();
@@ -363,6 +363,6 @@ const isParam = (parameter, value, nullIsTrue = false) => window.location.href.m
     else if(isUrl('quickstock')) onQuickStock();
     if(isDebug) {
         console.info("Codestone Tracker storage:");
-        console.info(getStoredCodestones());
+        console.info(await getStoredCodestones());
     }
 })();
