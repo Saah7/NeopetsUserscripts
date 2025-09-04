@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Neopets: Codestone Tracker
 // @namespace    https://greasyfork.org/en/users/1510049-saah7
-// @version      1.0.1
+// @version      1.1.0
 // @description  Moves your battle pet(s) to the top in the status page of training schools
 // @author       saahphire
 // @homepageURL  https://www.neopets.com/userlookup.phtml?user=saahphire
