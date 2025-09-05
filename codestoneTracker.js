@@ -199,7 +199,7 @@ const getStoredCodestones = async () => {
 * @param codestones {Object.<string, {id: number, qty: number}>} The data to be saved
 */
 const setStoredCodestones = (codestones) => {
-    GM_setValue("saahphire-codestone-tracker", JSON.stringify(codestones));
+    GM.setValue("saahphire-codestone-tracker", JSON.stringify(codestones));
 }
 
 /**
