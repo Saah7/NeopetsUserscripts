@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Neopets: Fishing Log
 // @namespace    https://github.com/saahphire/NeopetsUserscripts
-// @version      1.0.1
+// @version      1.0.2
 // @description  Logs your pets' fishing
 // @author       saahphire
 // @homepageURL  https://github.com/saahphire/NeopetsUserscripts
@@ -190,7 +190,7 @@ const saveAction = async (pet, actionId, detail, category, time, id=undefined) =
         a: actionId ?? '',
         d: detail ?? '',
         c: category ?? '',
-        t: time ?? (new Date()).toISOString().replace(/:\d+\.\d+Z/, ""),
+        t: time ?? (new Date()).getTime(),
         id: id ?? await retrieveId()
     }
     await storeLog(id ? editAction(id, entry, log) : addAction(entry, log));
@@ -377,9 +377,10 @@ async function onFishing() {
     const item = document.querySelector(".item-single__2020 + p b").innerText;
     const itemData = httpGet(`https://itemdb.com.br/api/v1/items/${slugify(item)}`);
     await saveAction(pet, getCategory(itemData), item, itemData.category);
-    if(document.querySelector('img[src="https://images.neopets.com/neoboards/avatars/fishsquid.gif"]')) await saveAction(pet, 10, 'Fishing - Titanic Squid', "Got the avatar", "Avatar");
+    // et, actionId, detail, category, time, id=undefined
+    if(document.querySelector('img[src="https://images.neopets.com/neoboards/avatars/fishsquid.gif"]')) await saveAction(pet, 10, 'Fishing - Titanic Squid', "Got the avatar");
     const levelIncrease = document.querySelector(".item-single__2020 ~ br + p b");
-    if (levelIncrease) await saveAction(pet, 11, levelIncrease.innerText, "Leveled up", "Level Up");
+    if (levelIncrease) await saveAction(pet, 11, levelIncrease.innerText, "Leveled up");
 }
 
 /*
